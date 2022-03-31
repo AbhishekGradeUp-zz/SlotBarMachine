@@ -11,8 +11,8 @@ val Color_FF9234 = Color(0xFFFF9234)
 
 val Color_808080 = Color(0xFF808080)
 
-// day colors
-val card = Color(0xFFFFFFFF)
+// day colorsa
+val card = Color(0xFCF6F5FF)
 val background = Color(0xFFF3F7F9)
 val primary = Color(0xFF006AF6)
 val text = Color(0xFF000000)

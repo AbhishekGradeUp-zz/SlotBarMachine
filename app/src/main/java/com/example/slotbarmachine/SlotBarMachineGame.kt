@@ -33,14 +33,31 @@ fun StopWatchDisplay(
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                var gameRoundlocal = gameRound +1
-                Text(
-                    text = "Round: $gameRoundlocal",
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 30.sp,
-                    color = Color.Black
-                )
-                Spacer(Modifier.height(20.dp))
+                Row(
+                    horizontalArrangement = Arrangement.Center,
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+
+                    var resultstring  = if(gameRound == 5) "Your Score: " else "Your Points:  "
+                    Text(
+                        text = resultstring,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 30.sp,
+                        color = Color.Black
+                    )
+                    var maxPoint = 5
+                    Text(
+                        text = "$gamePoint/$maxPoint",
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 30.sp,
+                        color = Color.Blue
+                    )
+                }
+
+
+
+                Spacer(Modifier.height(100.dp))
 
 
                 var text = if (isMatchFound &&  gameRound != 5) "Match Found" else ""
@@ -58,7 +75,7 @@ fun StopWatchDisplay(
                     fontSize = 30.sp,
                     color = Color.Blue
                 )
-                Spacer(Modifier.height(16.dp))
+                Spacer(Modifier.height(30.dp))
 
                 Text(
                     text = formattedTime,
@@ -75,32 +92,27 @@ fun StopWatchDisplay(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Button(onStartClick) {
-                    Text("Lets Go")
+                    Text("Lets Play")
                 }
 
             }
-        Spacer(Modifier.height(50.dp))
-        Row(
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.fillMaxWidth()
-        ) {
+        Spacer(Modifier.height(150.dp))
 
-            var resultstring  = if(gameRound == 5) "Your Score: " else "Your Points:  "
-            Text(
-                text = resultstring,
-                fontWeight = FontWeight.Bold,
-                fontSize = 30.sp,
-                color = Color.Black
-            )
-            var maxPoint = 5
-            Text(
-                text = "$gamePoint/$maxPoint",
-                fontWeight = FontWeight.Bold,
-                fontSize = 30.sp,
-                color = Color.Blue
-            )
+        var gameRoundlocal = gameRound +1
+
+        var finalString: String? = null
+        if(gameRoundlocal == 5)
+        {
+            finalString = "Game Over";
         }
-
+        else{
+            finalString =  "Round: $gameRoundlocal"
+        }
+        Text(
+            text = finalString,
+            fontWeight = FontWeight.Bold,
+            fontSize = 30.sp,
+            color = Color.Black
+        )
     }
 }
