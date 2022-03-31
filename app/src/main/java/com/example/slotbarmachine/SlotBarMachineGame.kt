@@ -101,7 +101,7 @@ fun StopWatchDisplay(
         var gameRoundlocal = gameRound +1
 
         var finalString: String? = null
-        if(gameRoundlocal == 5)
+        if(gameRound == 4)
         {
             finalString = "Game Over";
         }
